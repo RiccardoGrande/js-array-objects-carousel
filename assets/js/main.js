@@ -57,7 +57,6 @@ for (let i = 0; i < images.length; i++) {
     const thisImage = images[i];
     console.log(thisImage);
     //Organizzare i singoli membri in card/schede
-    //Trasformare la stringa foto in una immagine effettiva
     const markup = `
         <div class="col">
             <div class="card">
