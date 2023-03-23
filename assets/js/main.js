@@ -135,9 +135,9 @@ prevEl.addEventListener('click', function () {
   // diminuiamo il valore della variabile activeImage
   activeImage-- 
 
-  if ( activeImage < images.length ) {
+  if ( activeImage > images.length + 1) {
 
-    activeImage ++;
+    activeImage = 4;
 }
 
   // selezioniamo la prossima slide
