@@ -60,32 +60,20 @@ for (let i = 0; i < images.length; i++) {
     const markup = `
         <div class="col">
             <div class="card">
-                <button class="prev">Prev</button>
-                    <img class = "${i === activeImage ? 'active' : ''}" src="${thisImage.image}" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h3>
-                            ${thisImage.title} 
-                        </h3>
-                        <p>
-                            ${thisImage.text}
-                        </p>
-                    </div>
-                    <button class="next">Next</button>
+                
+                <img class="${i === activeImage ? 'active' : ''}" src="${thisImage.image}" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h3>
+                        ${thisImage.title} 
+                    </h3>
+                    <p>
+                        ${thisImage.text}
+                    </p>
+                </div>
+                
             </div>
         </div>`
     rowEl.innerHTML += markup
-
-    if (i === undefined ) {
-        
-        break;
-
-    } else {
-        
-
-        continue;
-
-    }
-
 
 }
 
@@ -107,10 +95,17 @@ nextEl.addEventListener('click', function () {
    console.log(currentSlide);
 
    // rimuoviamo le classi active dalle immagini in active
-   currentSlide.classList.remove('active')
+   currentSlide.classList.remove('.active')
 
    // aumentiamo il valore della variabile activeImage
-   activeImage++ 
+   // activeImage -> 4
+   activeImage++ // -> 5
+
+   // images -> 5 elementi -> 1 [0] ... 5 [4] -> length = 5
+    if ( activeImage > images.length - 1) {
+
+        activeImage = 0;
+    }
 
    // selezioniamo la slide successiva
    console.log(activeImage);
@@ -118,7 +113,7 @@ nextEl.addEventListener('click', function () {
 
    // aggiungiamo la classe active
    console.log(nextImage);
-   nextImage.classList.add('active')
+   nextImage.classList.add('.active')
 
 })
 
@@ -135,16 +130,22 @@ prevEl.addEventListener('click', function () {
   console.log(currentSlide);
 
   // rimuoviamo le classi active dalle immagini in active
-  currentSlide.classList.remove('active')
+  currentSlide.classList.remove('.active')
 
   // diminuiamo il valore della variabile activeImage
   activeImage-- 
+
+  if ( activeImage < images.length + 1) {
+
+    activeImage = 4;
+}
+
   // selezioniamo la prossima slide
   console.log(activeImage);
   const nextImage = slideImagesElements[activeImage]
 
   // aggiungiamo la classe active
   console.log(nextImage);
-  nextImage.classList.add('active')
+  nextImage.classList.add('.active')
 
 })
