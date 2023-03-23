@@ -61,15 +61,15 @@ for (let i = 0; i < images.length; i++) {
         <div class="col">
             <div class="card">
                 
-                <img class="${i === activeImage ? 'active' : ''}" src="${thisImage.image}" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h3>
+                <img class="${i === activeImage ? 'active' : ''}" src="${thisImage.image}" alt="" >
+                
+                    <h3 class="${i === activeImage ? 'active' : ''}">
                         ${thisImage.title} 
                     </h3>
-                    <p>
+                    <p class="${i === activeImage ? 'active' : ''}">
                         ${thisImage.text}
                     </p>
-                </div>
+                
                 
             </div>
         </div>`
@@ -81,7 +81,7 @@ for (let i = 0; i < images.length; i++) {
 
 
 // selezioniamo tutte le slide
-const slideImagesElements = document.querySelectorAll('.col > .images > img')  
+const slideImagesElements = document.querySelectorAll('.col > .card > img, h3, p ')  
     console.log(slideImagesElements);
 
 // creiamo la funzione per attivazione del click per next
@@ -95,7 +95,7 @@ nextEl.addEventListener('click', function () {
    console.log(currentSlide);
 
    // rimuoviamo le classi active dalle immagini in active
-   currentSlide.classList.remove('.active')
+   currentSlide.classList.remove('active')
 
    // aumentiamo il valore della variabile activeImage
    // activeImage -> 4
@@ -113,7 +113,7 @@ nextEl.addEventListener('click', function () {
 
    // aggiungiamo la classe active
    console.log(nextImage);
-   nextImage.classList.add('.active')
+   nextImage.classList.add('active')
 
 })
 
@@ -130,14 +130,14 @@ prevEl.addEventListener('click', function () {
   console.log(currentSlide);
 
   // rimuoviamo le classi active dalle immagini in active
-  currentSlide.classList.remove('.active')
+  currentSlide.classList.remove('active')
 
   // diminuiamo il valore della variabile activeImage
   activeImage-- 
 
-  if ( activeImage < images.length + 1) {
+  if ( activeImage < images.length ) {
 
-    activeImage = 4;
+    activeImage ++;
 }
 
   // selezioniamo la prossima slide
@@ -146,6 +146,6 @@ prevEl.addEventListener('click', function () {
 
   // aggiungiamo la classe active
   console.log(nextImage);
-  nextImage.classList.add('.active')
+  nextImage.classList.add('active')
 
 })
