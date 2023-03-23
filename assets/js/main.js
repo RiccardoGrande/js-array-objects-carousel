@@ -51,7 +51,7 @@ console.log(images);
 
 const rowEl = document.querySelector('.row')
 
-
+let activeImage = 0;
 
 for (let i = 0; i < images.length; i++) {
     const thisImage = images[i];
@@ -60,18 +60,29 @@ for (let i = 0; i < images.length; i++) {
     const markup = `
         <div class="col">
             <div class="card">
-                <img src="${thisImage.image}" alt="" class="card-img-top">
-                <div class="card-body">
-                    <h3>
-                        ${thisImage.title} 
-                    </h3>
-                    <p>
-                        ${thisImage.text}
-                    </p>
-                </div>
-                
+                <button class="prev">Prev</button>
+                    <img class = "${i === activeImage ? 'active' : ''}" src="${thisImage.image}" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h3>
+                            ${thisImage.title} 
+                        </h3>
+                        <p>
+                            ${thisImage.text}
+                        </p>
+                    </div>
+                    <button class="next">Next</button>
             </div>
         </div>`
     rowEl.innerHTML += markup
 
+    if (i === undefined ) {
+        
+        break;
+
+    } else {
+        
+
+        continue;
+
+    }
 }

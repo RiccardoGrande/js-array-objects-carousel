@@ -12,3 +12,7 @@ img{
     width: 50%;
     
 }
+
+.images img:not(.active) {
+    display: none;
+  }
